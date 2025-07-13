@@ -1,61 +1,137 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">eKelas</h1>
+<h3 align="center">(Platform Pembelajaran Online Berbasis Web)</h3><br>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="public/images/ekelas-logo.jpg" alt="Logo eKelas" width="150" height="auto"><br><br>
 </p>
 
-## About Laravel
+<p align="center">
+  <strong>Nama :</strong> Juwita <br>
+  <strong>NIM :</strong> D0223339
+</p>
+<br><br>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  Framework Web Laravel <br>
+  2025
+</p>
+<br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tentang eKelas
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**eKelas** adalah platform pembelajaran online berbasis web yang menyediakan materi dan kuis secara digital. Sistem ini memungkinkan pengguna untuk belajar secara mandiri melalui materi yang disediakan guru dan mengukur pemahaman melalui kuis online.
 
-## Learning Laravel
+### Role dan fitur-fiturnya
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 1. Admin (Pengelola Sistem)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Kelola data pengguna (guru dan siswa)
+- Kelola data course
+- Lihat semua materi dan kuis
+- Kontrol penuh terhadap sistem
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### 2. Guru (Pengelola Materi)
 
-## Laravel Sponsors
+- Tambah, edit, dan hapus course
+- Upload materi pembelajaran (PDF, video, teks)
+- Buat, edit, dan hapus kuis
+- Lihat hasil kuis siswa
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+#### 3. Siswa (Pengguna Pembelajaran)
 
-### Premium Partners
+- Registrasi & login
+- Mengakses materi pembelajaran
+- Mengerjakan kuis
+- Melihat nilai kuis
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+<br>
 
-## Contributing
+### Tabel-tabel database beserta field dan tipe datanya
+<br>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+#### Tabel 1 (users)
 
-## Code of Conduct
+| Nama Field | Tipe Data | Keterangan |
+|------------|-----------|------------|
+| id         | BIGINT    | Primary key |
+| name       | String    | Nama pengguna |
+| email      | String    | Email pengguna |
+| password   | String    | Password pengguna |
+| role       | enum      | admin, guru, siswa |
+| timestamps | datetime  | created_at dan updated_at |
+<br>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### Tabel 2 (profiles)
 
-## Security Vulnerabilities
+| Nama Field | Tipe Data | Keterangan |
+|------------|-----------|------------|
+| id         | BIGINT    | Primary key |
+| user_id    | foreignId | FK dari tabel users |
+| foto       | String    | Foto profil pengguna |
+| alamat     | Text      | Alamat pengguna |
+| bio        | Text      | Deskripsi singkat |
+| timestamps | datetime  | created_at dan updated_at |
+<br>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+#### Tabel 3 (courses)
 
-## License
+| Nama Field | Tipe Data | Keterangan |
+|------------|-----------|------------|
+| id         | BIGINT    | Primary key |
+| title      | String    | Nama course |
+| description| Text      | Deskripsi course |
+| user_id    | foreignId | ID guru yang membuat |
+| timestamps | datetime  | created_at dan updated_at |
+<br>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+#### Tabel 4 (materials)
+
+| Nama Field | Tipe Data | Keterangan |
+|------------|-----------|------------|
+| id         | BIGINT    | Primary key |
+| course_id  | foreignId | ID course terkait |
+| title      | String    | Judul materi |
+| type       | enum      | pdf, video, teks |
+| content    | text      | Link/file/isi materi |
+| timestamps | datetime  | created_at dan updated_at |
+<br>
+
+#### Tabel 5 (quizzes)
+
+| Nama Field | Tipe Data | Keterangan |
+|------------|-----------|------------|
+| id         | BIGINT    | Primary key |
+| course_id  | foreignId | ID course terkait |
+| question   | text      | Pertanyaan kuis |
+| options    | JSON      | Pilihan jawaban |
+| answer     | String    | Jawaban benar |
+| timestamps | datetime  | created_at dan updated_at |
+<br>
+
+#### Tabel 6 (results)
+
+| Nama Field | Tipe Data | Keterangan |
+|------------|-----------|------------|
+| id         | BIGINT    | Primary key |
+| user_id    | foreignId | ID siswa |
+| quiz_id    | foreignId | ID kuis |
+| score      | Integer   | Nilai |
+| timestamps | datetime  | created_at dan updated_at |
+<br>
+
+### Jenis-jenis Relasi
+
+- **User ke Profile** (One-to-One)  
+  Satu user hanya memiliki satu profil. Relasi ini digunakan untuk memisahkan data pribadi tambahan pengguna agar tidak menumpuk di tabel `users`.
+
+- **User ke Course** (One-to-Many)  
+  Satu guru bisa membuat banyak course.
+
+- **Course ke Materi** (One-to-Many)  
+  Satu course bisa memiliki banyak materi.
+
+- **Course ke Kuis** (One-to-Many)  
+  Satu course bisa memiliki banyak kuis.
+
+- **User ke Quiz melalui Results** (Many-to-Many)  
+  Satu siswa bisa mengerjakan banyak kuis, dan satu kuis bisa dikerjakan banyak siswa.
