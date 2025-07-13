@@ -2,7 +2,7 @@
 <h3 align="center">(Platform Pembelajaran Online Berbasis Web)</h3><br>
 
 <p align="center">
-  <img src="public/images/ekelas-logo.jpg" alt="Logo eKelas" width="150" height="auto"><br><br>
+  <img src="public/img/Logo eKelas removebg.png" alt="Logo eKelas" width="150" height="auto"><br><br>
 </p>
 
 <p align="center">
